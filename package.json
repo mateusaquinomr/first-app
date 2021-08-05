@@ -1,0 +1,30 @@
+{
+  "name": "first-app",
+  "version": "0.1.0",
+  "description": "Aplicação para cadastro de usuários",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateusaquino1/first-app.git"
+  },
+  "keywords": [
+    "node",
+    "web",
+    "app",
+    "user",
+    "manager"
+  ],
+  "author": "Mateus A.",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/mateusaquino1/first-app/issues"
+  },
+  "homepage": "https://github.com/mateusaquino1/first-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "faker": "^5.5.3"
+  }
+}
