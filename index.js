@@ -40,8 +40,6 @@ global.users =[
     {name:"PAtricia S. Paula",address:"Rua Dom Jeronimo, 666",email:"patricia@virtual.ufc.br",age:46,height:1.70,vote:true},
     {name:"Henrique Sérgio L. Pequeno",address:"Rua do Henrique, 666",email:"henrique@virtual.ufc.br",age:46,height:1.70,vote:true}];
 
-
-
 //ativa uso do EJS e do Express-ejs-layouts
 app.set('view engine','ejs');
 app.use(expressLayouts);
