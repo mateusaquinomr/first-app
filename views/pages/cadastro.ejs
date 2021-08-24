@@ -1,8 +1,12 @@
 <%- contentFor( 'body') %>
 
-<div class="jumbotron">
-    <h2>Usuários Cadastrados</h2>
-    <p>Lista de usuários Cadastrados no sistema.</p>            
+<div class="main">
+    <div class="caixa">
+        <section class="head">
+           <p>Usuários Cadastrados no Sistema</p>
+           <!-- <p>Lista de usuários Cadastrados no sistema.</p>    -->
+        </section>         
+        <section class="caixa-tabela">
     <table class="table table-hover">
         <thead>
         <tr>
@@ -13,6 +17,7 @@
             <th>Altura</th>
             <th>Vota?</th>
             <th>Ação</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -67,4 +72,6 @@
 
         </tbody>
     </table>
+</section>
+</div>
 </div>
