@@ -102,9 +102,8 @@ router.post('/cadastro/update',(req,res)=>{
     users[req.body.id].heigth=req.body.heigth;
     users[req.body.id].vote=req.body.vote;
 
-    console.log("Dados recebidos: ",req.body);//mostra no console do servidor os dados recebidos
-
     res.sendStatus(200); //envia mensagem 200 significando que as modificacoes foram ok
+    console.log("Dados recebidos: ",req.body);//mostra no console do servidor os dados recebidos
 });
 
 router.get('/cadastro/list',(req,res)=>{
@@ -123,8 +122,9 @@ router.post('/cadastro/add',(req,res)=>{
 
     users.push(user);
     console.log("Usuário cadastrado: ",user);
-    // console.log("Lista dos usuários: ",users)
+    console.log("Lista dos usuários: ",users)
     res.sendStatus(200);
+    
 
 });
 
