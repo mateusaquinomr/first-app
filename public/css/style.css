@@ -17,7 +17,9 @@ body{
 }
 
 #marca{
-    color: white;
+    color:#FFC20F;
+    font-weight: 600;
+    font-size: 2rem;
 }
 
 #menu{
@@ -42,24 +44,39 @@ input{
 }
 
 .main{
-    background-color: #E5E5E5;;
-    height: 100vh;
+    min-height:100vh;
     margin: 0px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+main{
+    background-color: #E5E5E5;;
+}
+
+#color-link{
+    color: #FFC20F;
+    padding-left: 40px;
+}
+
+.nav-link{
+    padding-left: 40px;
+}
+
 .caixa{
-    height: 70%;
+    /* height: 70%; */
+    width: 100%;
     margin-top: 50px;
     background: #FFF5D1;
     border-radius: 25px;
+    margin-bottom: 50px;
 }
 
 .head{
     background-color: #FFC20F;
-    height: 10%;
+    height: 8vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -75,6 +92,57 @@ input{
 }
 
 .caixa-tabela{
-    /* background-color: darkgoldenrod; */
     height: 90%;
+}
+
+#cadastrar-novo{
+    width: 100%;
+}
+
+.form-group{
+    width: 40%;
+}
+
+
+
+/* css do home e about */
+#home{
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home-content{
+    /* width: 60%; */
+    font-size: 1rem;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#titulo{
+    text-align: center;
+    font-size: 1.5rem;
+    width: 70%;
+}
+
+#sub-titulo{
+    text-align: center;
+    font-size: 1rem;
+    padding-bottom: 25px;
+    /* width: 70%; */
+}
+
+/* css do about */
+#about{
+    min-height: 90vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content:first baseline;
+}
+
+#about-content{
+    display: block;
 }

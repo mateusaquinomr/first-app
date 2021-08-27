@@ -1,93 +1,141 @@
-<%- contentFor( 'body') %>
+<%- contentFor( 'body' ) %>
 
-<div class="main">
-    <div class="caixa">
-        <section class="head">
-           <p>Usuários Cadastrados no Sistema</p>
-           <!-- <p>Lista de usuários Cadastrados no sistema.</p>    -->
-        </section>         
-        <section class="caixa-tabela">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Endereço</th>
-            <th>Email</th>
-            <th>Idade</th>
-            <th>Altura</th>
-            <th>Vota?</th>
-            <th>Ação</th>
-            <th>Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-              
+    <div class="main ">
+        <div class="caixa">
+            <section class="head">
+                <p>Usuários Cadastrados no Sistema</p>
+                <!-- <p>Lista de usuários Cadastrados no sistema.</p>    -->
+            </section>
+            <section class="caixa-tabela">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Endereço</th>
+                            <th>Idade</th>
+                            <th>Altura</th>
+                            <th>Vota?</th>
+                            <th>Ação</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-            <% let linkRemove="/cadastro/remove/"; %>
-            <% let linkUpdate="/cadastro/update/"; %>
 
-            <% if(users.length >0){%>
-                <% for(let index=0;index<users.length;index++){ %>
-                    <tr data-index-row="<%= index %>">
-                        
-                    <td data-index-row="<%=index%>">
-                        <span  class="show"><%= users[index].name %></span>
-                        <input type="text" name="name"  class="hidden" value="<%= users[index].name %>">
-                    </td>
-                    <td data-index-row="<%=index%>">
-                        <span  class="show"><%= users[index].email %></span>
-                        <input type="text" name="email"  class="hidden" value="<%= users[index].email %>">
-                    </td>
-                    <td data-index-row="<%=index%>">
-                        <span  class="show"><%= users[index].address %></span>
-                        <input type="text" name="address"  class="hidden" value="<%= users[index].address %>">
-                    </td>
-                    <td data-index-row="<%=index%>">
-                        <span  class="show"><%= users[index].age %></span>
-                        <input type="text" name="age"  class="hidden" value="<%= users[index].age %>">
-                        
-                    </td>
-                    <td data-index-row="<%=index%>">
-                        <span  class="show"><%= users[index].heigth %></span>
-                        <input type="text" name="heigth"  class="hidden" value="<%= users[index].heigth %>">
-                        
-                    </td>
-                    <td data-index-row="<%=index%>">
-                        <span  class="show"><%= users[index].vote %></span>
-                        <input type="text" name="vote" class="hidden" value="<%= users[index].vote %>">
-                        
-                    </td>
-                    <td data-index-row="<%=index%>" class="hidden" data-index-row="<%=index%>">
-                        <input type="button" value="Atualizar" class="hidden" >
-                    </td>
-               
-                <!-- a funcao update()  foi criada no arquivo script.js presente no diretorio public. Ela fará a modificação dos itens e envio dos dados na forma de uma string para o servidor usando como rta /cadastro/update/ -->
-                <td  data-index-row="<%= index %>">
-                    <a href="#" onclick="update('<%=index%>','<%= linkUpdate %>')" class="show"><i class="fas fa-pen"></i></a>  
-                </td> 
-                
-                <!-- para passar parametros para uma rota criada basta usar o delimitador "/" entre os valores dos parametros e defini-los no arquivo de rotas usando ":" para separar cada valor, seguido de um nome que identificarar esse valor. Exemplo: /cadastro/remove/:id -->
-                <td  data-index-row="<%= index %>">
-                    <!-- <a href="#" class="show" onclick="remove('<%=index %>','<%=linkRemove%>')"><i class="fas fa-trash-alt"></i></a> -->
-                    <a href="#" class="show" onclick="remove('<%=index %>','<%=users[index].name %>','<%=linkRemove%>')"><i class="fas fa-trash-alt"></i></a>
-                </td>
-            </tr>
-            <% } //for %>
-        <% }else{%>
-            <tr><td colspan="7"><p class="bg-info text-white">Nenhum dado cadastrado</p></td></tr>
-            <%} //If-Else %>   
-        </tbody>
-    </table>
-</section>
+                        <% let linkRemove="/cadastro/remove/" ; %>
+                            <% let linkUpdate="/cadastro/update/" ; %>
 
-<form action="/cadastro/add" method="post">
-    <input type="text" name="_name" id="_name">
-    <input type="text" name="_email" id="_email">
-    <input type="text" name="_address" id="_address">
-    <input type="text" name="_heigth" id="_heigth">
-    <input type="text" name="_age" id="_age">
-    <input type="text" name="_vote" id="_vote">
-    <input type="submit" value="Enviar">
-</form>
-</div>
-</div>
+                                <% if(users.length>0){%>
+                                    <% for(let index=0;index<users.length;index++){ %>
+                                        <tr data-index-row="<%= index %>">
+
+                                            <td data-index-row="<%=index%>">
+                                                <span class="show">
+                                                    <%= users[index].name %>
+                                                </span>
+                                                <input type="text" name="name" class="hidden"
+                                                    value="<%= users[index].name %>">
+                                            </td>
+                                            <td data-index-row="<%=index%>">
+                                                <span class="show">
+                                                    <%= users[index].email %>
+                                                </span>
+                                                <input type="text" name="email" class="hidden"
+                                                    value="<%= users[index].email %>">
+                                            </td>
+                                            <td data-index-row="<%=index%>">
+                                                <span class="show">
+                                                    <%= users[index].address %>
+                                                </span>
+                                                <input type="text" name="address" class="hidden"
+                                                    value="<%= users[index].address %>">
+                                            </td>
+                                            <td data-index-row="<%=index%>">
+                                                <span class="show">
+                                                    <%= users[index].age %>
+                                                </span>
+                                                <input type="text" name="age" class="hidden"
+                                                    value="<%= users[index].age %>">
+
+                                            </td>
+                                            <td data-index-row="<%=index%>">
+                                                <span class="show">
+                                                    <%= users[index].heigth %>
+                                                </span>
+                                                <input type="text" name="heigth" class="hidden"
+                                                    value="<%= users[index].heigth %>">
+
+                                            </td>
+                                            <td data-index-row="<%=index%>">
+                                                <span class="show">
+                                                    <%= users[index].vote %>
+                                                </span>
+                                                <input type="text" name="vote" class="hidden"
+                                                    value="<%= users[index].vote %>">
+
+                                            </td>
+                                            <td data-index-row="<%=index%>" class="hidden" data-index-row="<%=index%>">
+                                                <input type="button" value="Atualizar" class="hidden">
+                                            </td>
+
+                                            <!-- a funcao update()  foi criada no arquivo script.js presente no diretorio public. Ela fará a modificação dos itens e envio dos dados na forma de uma string para o servidor usando como rta /cadastro/update/ -->
+                                            <td data-index-row="<%= index %>">
+                                                <a href="#" onclick="update('<%=index%>','<%= linkUpdate %>')"
+                                                    class="show"><i class="fas fa-pen"></i></a>
+                                            </td>
+
+                                            <!-- para passar parametros para uma rota criada basta usar o delimitador "/" entre os valores dos parametros e defini-los no arquivo de rotas usando ":" para separar cada valor, seguido de um nome que identificarar esse valor. Exemplo: /cadastro/remove/:id -->
+                                            <td data-index-row="<%= index %>">
+                                                <!-- <a href="#" class="show" onclick="remove('<%=index %>','<%=linkRemove%>')"><i class="fas fa-trash-alt"></i></a> -->
+                                                <a href="#" class="show"
+                                                    onclick="remove('<%=index %>','<%=users[index].name %>','<%=linkRemove%>')"><i
+                                                        class="fas fa-trash-alt"></i></a>
+                                            </td>
+                                        </tr>
+                                        <% } //for %>
+                                            <% }else{%>
+                                                <tr>
+                                                    <td colspan="7">
+                                                        <p class="bg-info text-white">Nenhum dado cadastrado</p>
+                                                    </td>
+                                                </tr>
+                                                <%} //If-Else %>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+    <section id="cadastrar-novo">
+    <h2>Cadastrar novo usuário</h2>
+    <form action="/cadastro/add" method="post">
+        <div class="form-group">
+            <label for="_name">Nome:</label>
+            <input type="text" name="_name" id="_name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="_email">E-mail:</label>
+            <input type="text" name="_email" id="_email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="_address">Endereço:</label>
+            <input type="text" name="_address" id="_address" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="_age">Idade:</label>
+            <input type="text" name="_age" id="_age" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="_heigth">Altura:</label>
+            <input type="text" name="_heigth" id="_heigth" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="_vote">Votou:</label>
+            <input type="text" name="_vote" id="_vote" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Enviar"  class="btn btn-success">
+        </div>
+    </form>
+    </section>
+    </div>
