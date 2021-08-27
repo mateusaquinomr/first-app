@@ -123,9 +123,7 @@ router.post('/cadastro/add',(req,res)=>{
     users.push(user);
     console.log("Usuário cadastrado: ",user);
     console.log("Lista dos usuários: ",users)
-    res.sendStatus(200);
-    
-
+    res.redirect('/cadastro');
 });
 
 //Essa linha permite que este código seja exportado como um módulo e possa ser usado em outras partes da aplicação.

@@ -1,9 +1,99 @@
 <%- contentFor( 'body' ) %>
 
     <div class="main ">
+
+        <!-- <section id="cadastrar-novo">
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    + Novo Usuário
+  </button>
+   -->
+        <!-- Modal -->
+        <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+            </section> -->
+
+
+
+
         <div class="caixa">
             <section class="head">
                 <p>Usuários Cadastrados no Sistema</p>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary cor-btn-add" data-toggle="modal" data-target="#exampleModalCenter">
+                    Adicionar Novo Usuário
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Cadastrar novo usuário</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/cadastro/add" method="post">
+                                    <div class="form-group">
+                                        <label for="_name">Nome:</label>
+                                        <input type="text" name="_name" id="_name" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="_email">E-mail:</label>
+                                        <input type="text" name="_email" id="_email" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="_address">Endereço:</label>
+                                        <input type="text" name="_address" id="_address" class="form-control">
+                                    </div>
+                                    <div class="form-group-idade-altura-votou">
+                                        <div class="form-group-idade">
+                                            <label for="_age">Idade:</label>
+                                            <input type="text" name="_age" id="_age" class="form-control">
+                                        </div>
+
+                                        <div class="form-group-altura">
+                                            <label for="_heigth">Altura:</label>
+                                            <input type="text" name="_heigth" id="_heigth" class="form-control">
+                                        </div>
+
+                                        <div class="form-group-votou">
+                                            <label for="_vote">Votou:</label>
+                                            <input type="text" name="_vote" id="_vote" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary cor-btn-cadastrar" value="Cadastrar" class="btn btn-success">
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
                 <!-- <p>Lista de usuários Cadastrados no sistema.</p>    -->
             </section>
             <section class="caixa-tabela">
@@ -14,10 +104,10 @@
                             <th>Email</th>
                             <th>Endereço</th>
                             <th>Idade</th>
-                            <th>Altura</th>
-                            <th>Vota?</th>
-                            <th>Ação</th>
-                            <th>Delete</th>
+                            <th class="centralizar">Altura</th>
+                            <th class="centralizar">Vota?</th>
+                            <th class="centralizar">Ação</th>
+                            <th class="centralizar">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,7 +141,7 @@
                                                 <input type="text" name="address" class="hidden"
                                                     value="<%= users[index].address %>">
                                             </td>
-                                            <td data-index-row="<%=index%>">
+                                            <td class="centralizar" data-index-row="<%=index%>">
                                                 <span class="show">
                                                     <%= users[index].age %>
                                                 </span>
@@ -59,7 +149,7 @@
                                                     value="<%= users[index].age %>">
 
                                             </td>
-                                            <td data-index-row="<%=index%>">
+                                            <td class="centralizar" data-index-row="<%=index%>">
                                                 <span class="show">
                                                     <%= users[index].heigth %>
                                                 </span>
@@ -67,7 +157,7 @@
                                                     value="<%= users[index].heigth %>">
 
                                             </td>
-                                            <td data-index-row="<%=index%>">
+                                            <td class="centralizar" data-index-row="<%=index%>">
                                                 <span class="show">
                                                     <%= users[index].vote %>
                                                 </span>
@@ -76,17 +166,17 @@
 
                                             </td>
                                             <td data-index-row="<%=index%>" class="hidden" data-index-row="<%=index%>">
-                                                <input type="button" value="Atualizar" class="hidden">
+                                                <input type="button" class="btn-atualizar" value="Atualizar" class="hidden">
                                             </td>
 
                                             <!-- a funcao update()  foi criada no arquivo script.js presente no diretorio public. Ela fará a modificação dos itens e envio dos dados na forma de uma string para o servidor usando como rta /cadastro/update/ -->
-                                            <td data-index-row="<%= index %>">
+                                            <td class="centralizar" class="centralizar" data-index-row="<%= index %>">
                                                 <a href="#" onclick="update('<%=index%>','<%= linkUpdate %>')"
                                                     class="show"><i class="fas fa-pen"></i></a>
                                             </td>
 
                                             <!-- para passar parametros para uma rota criada basta usar o delimitador "/" entre os valores dos parametros e defini-los no arquivo de rotas usando ":" para separar cada valor, seguido de um nome que identificarar esse valor. Exemplo: /cadastro/remove/:id -->
-                                            <td data-index-row="<%= index %>">
+                                            <td class="centralizar" data-index-row="<%= index %>">
                                                 <!-- <a href="#" class="show" onclick="remove('<%=index %>','<%=linkRemove%>')"><i class="fas fa-trash-alt"></i></a> -->
                                                 <a href="#" class="show"
                                                     onclick="remove('<%=index %>','<%=users[index].name %>','<%=linkRemove%>')"><i
@@ -106,9 +196,9 @@
             </section>
         </div>
 
-    <section id="cadastrar-novo">
-    <h2>Cadastrar novo usuário</h2>
-    <form action="/cadastro/add" method="post">
+        <!-- <section id="cadastrar-novo"> -->
+        <!-- <h2>Cadastrar novo usuário</h2> -->
+        <!-- <form action="/cadastro/add" method="post">
         <div class="form-group">
             <label for="_name">Nome:</label>
             <input type="text" name="_name" id="_name" class="form-control">
@@ -136,6 +226,6 @@
         <div class="form-group">
             <input type="submit" value="Enviar"  class="btn btn-success">
         </div>
-    </form>
-    </section>
+    </form> -->
+        <!-- </section> -->
     </div>

@@ -70,7 +70,7 @@ main{
     width: 100%;
     margin-top: 50px;
     background: #FFF5D1;
-    border-radius: 25px;
+    border-radius: 10px;
     margin-bottom: 50px;
 }
 
@@ -80,8 +80,9 @@ main{
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 25px 25px 0px 0px;
+    justify-content: space-between;
+    padding: 0px 60px 0px 60px;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .head p{
@@ -97,13 +98,80 @@ main{
 
 #cadastrar-novo{
     width: 100%;
+    margin-top: 50px;
+}
+
+.centralizar{
+    text-align: center;
 }
 
 .form-group{
-    width: 40%;
+    width: 100%;
 }
 
+.cor-btn-add{
+    background-color: #28A745;
+    border-radius: 5px;
+    border-color: #28A745;
+}
 
+.cor-btn-add:hover {
+    background-color: rgb(47, 121, 64);
+    border: rgb(47, 121, 64);
+}
+
+.cor-btn-add:focus {
+    background-color: rgb(47, 121, 64);
+    border: rgb(47, 121, 64);
+}
+
+.modal-header{
+    background-color: #28A745;
+}
+
+.modal-body{
+    /* background-color: #C8F4D2;  */
+}
+
+.cor-btn-cadastrar{
+    background-color: #28A745;
+    border-radius: 5px;
+    border-color: #28A745;
+}
+
+.cor-btn-cadastrar:hover{
+    background-color: rgb(47, 121, 64);
+    border: rgb(47, 121, 64);
+}
+
+.fa-pen{
+    /* color: #0154A4; */
+    color: #6B439B;
+}
+
+.btn-atualizar{
+    background-color: #6B439B;
+    color: #ffff;
+    border-radius: 5px;
+    border-color: #6B439B;
+}
+
+.fa-trash-alt{
+    color: #EE1B24;
+}
+
+.form-group-idade-altura-votou{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.form-group-idade, .form-group-altura, .form-group-votou{
+    width: 25%;
+}
+/* .modal{
+    border-radius: 50px;
+} */
 
 /* css do home e about */
 #home{
