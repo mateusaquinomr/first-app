@@ -23,7 +23,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="/cadastro/add" method="post">
+                                <form name="form1" action="/cadastro/add" method="post">
                                     <div class="form-group">
                                         <label for="_name">Nome:</label>
                                         <input type="text" name="_name" id="_name" class="form-control" required>
@@ -53,7 +53,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="submit" class="btn btn-primary cor-btn-cadastrar" value="Cadastrar"
+                                        <input type="submit" onclick="validarEmail(document.form1._email)" class="btn btn-primary cor-btn-cadastrar" value="Cadastrar"
                                             class="btn btn-success">
                                     </div>
                                 </form>
