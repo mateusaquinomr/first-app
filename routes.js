@@ -1,19 +1,12 @@
 const express = require("express");
 const router = express.Router();
 
-// const faker = require("faker");
-
-// let db = require("./db");
-
-// db.criarDB("minhaBaseDados");
 
 //Especifica a pasta contendo arquivos estáticos. 
 //O nome 'public' não precisará ser colocado na rota 
 //Para serem alcançados os arquivos e pastas que estão dentro dele. 
 //Por isso na imagem que está na página home.ejs só há o indicativo para 'images'
 router.use(express.static('public'));
-
-
 
 //************* Exemplode Rotas ************* 
 
@@ -44,28 +37,13 @@ router.get('/cadastro',(req,res)=>{ //callback - funcao que trata dado evento  G
     res.render('pages/cadastro',{users:users}); 
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-router.post('/cadastro/remove',(req,res)=>{ 
+router.post('/cadastro/remove',(req,res)=>{
     //let item =req.body.id; //pega o valor passado através do parâmetro id e atribui a variável item. 
     let name = req.body.name;
 
     if(users.length==0){
         console.log("Erro: Não há elemento a ser removido!");
-        return res.status(400).json({
+        return res.status(500).json({
             status:'error',
             error:`Removed element: ${name}`
         });
@@ -84,12 +62,21 @@ router.post('/cadastro/remove',(req,res)=>{
                 console.log("Erro ao remover elemento: ",name);
                 return res.status(400).json({
                     status:'error',
-                    error:`Removed element: ${name}`
+                    error:`Didn't Remove element: ${name}`
                 });
             }
         }
     }
+    
+    
+    //users.splice(item,1); //este método permite adicionar ou remover um item do vetor em uma dada posição. 
+    //res.render('pages/cadastro',{users:users});
+    //res.sendStatus(200); //envia mensagem 200 significando que as modificacoes foram ok
+    //res.send(JSON.stringify({sucess:`Elemento removido com sucesso: ${name}`}));
+    //console.log("Elemento Removido: ",name);
+    
 });
+
 
 router.post('/cadastro/update',(req,res)=>{
     //substitui os valores armazenados no item do vetror dado por id, por valores fornecidos como parametro vindos do navegador.
@@ -108,22 +95,35 @@ router.post('/cadastro/update',(req,res)=>{
 
 router.get('/cadastro/list',(req,res)=>{
 
+    console.log("Olha a lista ae: ",users); //nao use esta linha se tiver muitos elementos em users pois causara lentidao no servidor
+    //captura os dados de usuários (users) e transforma o vetor de objetos em uma string JSON, para ser enviada ao cliente
+    res.send(JSON.stringify(users));
+    // res.status(200).json({
+    //     status:'sucess',
+    //     data: `Lista foi adiocionado com sucesso!`
+    // });
 });
 
 router.post('/cadastro/add',(req,res)=>{
+    
     let user={name:"",email:"",address:"",heigth:"",age:"",vote:""};
 
-    user.name = req.body._name;
-    user.email = req.body._email;
-    user.address = req.body._address;
-    user.heigth = req.body._heigth;
-    user.age = req.body._age;
-    user.vote = req.body._vote;
+    user.name = req.body.name;
+    user.email = req.body.email;
+    user.address = req.body.address;
+    user.heigth = req.body.heigth;
+    user.age = req.body.age;
+    user.vote = req.body.vote;
 
     users.push(user);
-    console.log("Usuário cadastrado: ",user);
-    console.log("Lista dos usuários: ",users)
-    res.redirect('/cadastro');
+    console.log("Usuário cadastrado: ", user);
+    console.log("Lista dos usuários: ", users); //nao use esta linha se tiver muitos elementos em users pois causara lentidao no servidor
+    res.sendStatus(200);
+    res.status(200).json({
+        status:'sucess',
+        data: `Usuário ${user} foi adiocionado com sucesso!`
+    });
+
 });
 
 //Essa linha permite que este código seja exportado como um módulo e possa ser usado em outras partes da aplicação.

@@ -167,6 +167,11 @@ main {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
+    margin: 0 auto;
+}
+
+.form-group-idade-altura-votou input{
+   width:90%;
 }
 
 .form-group-idade,
